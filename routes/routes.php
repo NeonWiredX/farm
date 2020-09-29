@@ -4,7 +4,7 @@
 return [
     ''=>"PointController@index",//list
     'create'=>"PointController@create",
-    'view'=>"PointController@create",
-    'update'=>"PointController@create",
-    'delete'=>"PointController@create",
+    'view'=>"PointController@view",
+    'update'=>"PointController@update",
+    'delete'=>"PointController@delete",
 ];
