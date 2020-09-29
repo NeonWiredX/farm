@@ -1,0 +1,19 @@
+{
+    "name": "null/test_farm",
+    "description": "test task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Null",
+            "email": "neonwired@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Farm\\": "app/"
+        }
+    }
+}
