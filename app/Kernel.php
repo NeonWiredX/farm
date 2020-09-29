@@ -6,8 +6,14 @@ namespace Farm;
 
 class Kernel
 {
-    public function __construct()
+
+
+    public function __construct(array $config, array $routes)
     {
+
+    }
+
+    public function processRequest(){
 
     }
 
