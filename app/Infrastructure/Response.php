@@ -3,8 +3,8 @@
 
 namespace Farm\Infrastructure;
 
-
-class Migrations
+//TODO: implement psr
+class Response
 {
 
 }
