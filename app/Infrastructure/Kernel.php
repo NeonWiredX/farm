@@ -23,12 +23,9 @@ class Kernel implements ContainerInterface
             if (!array_key_exists('class', $params)) {
                 throw new InvalidConfigurationException('No class parameter in config file');
             }
-            $service = new $params['class']();
-            //TODO: ridiculously stupid
+            $class = $params['class'];
             unset($params['class']);
-            foreach ($params as $key=>$value){
-                $service->{$key}=$value;
-            }
+            $service = new $class($params);
             $this->singletones[$name]=$service;
         }
         static::$container = $this;

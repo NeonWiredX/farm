@@ -17,6 +17,9 @@ class ObjectModel
 
     protected Geoposition $geoposition;
 
+    /** @var File[] $files */
+    protected array $files;
+
     public function getId(): int
     {
         return $this->id;
@@ -54,6 +57,18 @@ class ObjectModel
     public function setGeoposition(Geoposition $geoposition)
     {
         $this->geoposition = $geoposition;
+    }
+
+    public function getFiles():array{
+        return $this->files;
+    }
+
+    public function setFiles(array $files){
+        $this->files = $files;
+    }
+
+    public function addFile(File $file){
+        $this->files[] = $file;
     }
 
 }

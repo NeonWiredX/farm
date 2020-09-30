@@ -1,6 +1,6 @@
 <?php
 
-//need differentiation between singletons and fabrics
+//TODO: need differentiation between singletons and fabrics
 return [
     'db' => [
         'class' => '',

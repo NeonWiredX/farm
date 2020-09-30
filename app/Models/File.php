@@ -4,9 +4,7 @@
 namespace Farm\Models;
 
 
-class Geoposition
+class File
 {
-    
-
 
 }

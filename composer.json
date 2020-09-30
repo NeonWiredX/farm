@@ -13,7 +13,8 @@
   "require": {
     "psr/container": "^1.0",
     "psr/log": "^1.1",
-    "ext-http": "*"
+    "ext-http": "*",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {

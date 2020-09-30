@@ -39,8 +39,12 @@ class Logger implements LoggerInterface
     }
 
 
-    public function __construct(string $path, string $logLevel = 'info')
+    public function __construct(array $params)
     {
+
+        $path = $params['path'] ?? '';
+        $logLevel = $params['logLevel'] ?? 'info';
+
         $this->path = $path;
         if (!array_key_exists($logLevel, $this->priority())) {
             throw new InvalidConfigurationException("Default log level not found");
@@ -50,7 +54,7 @@ class Logger implements LoggerInterface
 
     public function emergency($message, array $context = array()): void
     {
-      $this->log(LogLevel::EMERGENCY, $message, $context);
+        $this->log(LogLevel::EMERGENCY, $message, $context);
     }
 
     public function alert($message, array $context = array()): void
@@ -90,7 +94,7 @@ class Logger implements LoggerInterface
 
     public function log($level, $message, array $context = array()): void
     {
-        if (!array_key_exists($level,$this->priority())){
+        if (!array_key_exists($level, $this->priority())) {
             throw new RuntimeException("Log level not found");
         }
 
@@ -102,8 +106,8 @@ class Logger implements LoggerInterface
 
     public function __destruct()
     {
-        $text = implode("\n",$this->messageBuffer);
+        $text = implode("\n", $this->messageBuffer);
         //TODO: investigate better method here
-        file_put_contents($this->path,$text);
+        file_put_contents($this->path, $text);
     }
 }
