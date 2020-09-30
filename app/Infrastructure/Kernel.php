@@ -35,6 +35,7 @@ class Kernel implements ContainerInterface
 
     public function processRequest()
     {
+        //TODO: create separate router
 
     }
 

@@ -9,20 +9,43 @@ class Request
     /**
      * @var array Collection of request headers.
      */
-    private $_headers;
+    private $headers;
 
-    private $_method;
+    private $method;
+
+    private $get;
+
+    private $post;
+    
+    private $rawBody;
+
+    private $queryParams;
+
+    private $bodyParams;
 
     public function __construct() {
         $headers = http_get_request_headers();
         foreach ($headers as $name => $value) {
-            $this->_headers[$name] = $value;
+            $this->headers[$name] = $value;
         }
 
         if (isset($_SERVER['REQUEST_METHOD'])) {
-            $this->_method =  strtoupper($_SERVER['REQUEST_METHOD']);
+            $this->method =  strtoupper($_SERVER['REQUEST_METHOD']);
         }else{
-            $this->_method =  'GET';
+            $this->method =  'GET';
+        }
+
+        if ($this->rawBody === null) {
+            $this->rawBody = file_get_contents('php://input');
+        }
+
+        if ($this->queryParams === null) {
+            $this->queryParams = $_GET;
+        }
+
+        if ($this->bodyParams===null){
+            //TODO: CHECK CONTENT-TYPE
+            $this->bodyParams = json_decode($_POST);
         }
     }
 
