@@ -13,3 +13,5 @@
 
 ##Заметки
 >Использованы [PSR-3](https://www.php-fig.org/psr/psr-3/) [PSR-11](https://www.php-fig.org/psr/psr-11/)
+
+>Требуется PHP 7.4 
