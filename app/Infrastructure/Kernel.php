@@ -9,6 +9,7 @@ use http\Exception\RuntimeException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Log\LoggerInterface;
 
 class Kernel implements ContainerInterface
 {
@@ -50,5 +51,20 @@ class Kernel implements ContainerInterface
         return array_key_exists($id, $this->singletones);
     }
 
+    //FAST GET
+
+    public function db():IDatabase{
+        if (!array_key_exists('db',$this->singletones)){
+            throw new RuntimeException("There no db class in container!");
+        }
+        return $this->singletones['db'];
+    }
+
+    public function logger():LoggerInterface{
+        if (!array_key_exists('logger',$this->singletones)){
+            throw new RuntimeException("There no logger class in container!");
+        }
+        return $this->singletones['logger'];
+    }
 
 }
