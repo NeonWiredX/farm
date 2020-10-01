@@ -99,7 +99,6 @@ class Logger implements LoggerInterface
         }
 
         if ($this->logLevel >= $this->priority()[$level]) {
-            //TODO: implement standart: __toString objects method
             $this->messageBuffer[] = $message;
         }
     }
@@ -107,7 +106,10 @@ class Logger implements LoggerInterface
     public function __destruct()
     {
         $text = implode("\n", $this->messageBuffer);
+        if (!file_exists($this->path)){
+            touch($this->path);
+        }
         //TODO: investigate better method here
-        file_put_contents($this->path, $text);
+        file_put_contents($this->path, $text,FILE_APPEND);
     }
 }

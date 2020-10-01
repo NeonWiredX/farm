@@ -40,14 +40,14 @@ class Request {
             $this->rawBody = file_get_contents( 'php://input' );
         }
 
-        if ($this->queryParams === null) {
-            $this->queryParams = $_GET;
+        if ($this->get === null) {
+            $this->get = $_GET;
         }
 
-        if ($this->bodyParams === null) {
-            //TODO: CHECK CONTENT-TYPE
-            $this->bodyParams = json_decode( $_POST );
+        if ($this->post === null) {
+            $this->post = $_POST;
         }
+
     }
 
 }
