@@ -13,6 +13,6 @@ return [
     ],
     'logger' => [
         'class' => Logger::class,
-        'path' => __DIR__ . '../run/app.log'
+        'path' => __DIR__ . '/../run/app.log'
     ],
 ];

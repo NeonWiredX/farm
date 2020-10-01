@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Farm\Infrastructure;
+namespace Farm\Infrastructure\Interfaces;
 
 
 interface IDatabase

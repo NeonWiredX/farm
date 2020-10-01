@@ -7,11 +7,13 @@ namespace Farm\Infrastructure;
 use Farm\Infrastructure\Exceptions\InvalidConfigurationException;
 use PDO;
 use PDOException;
+use Farm\Infrastructure\Interfaces\IDatabase;
 
 class MysqlDatabase implements IDatabase {
     protected PDO $pdo;
 
     public function __construct(array $params) {
+
         if (!array_key_exists( 'dsn', $params )) {
             throw new InvalidConfigurationException( 'no dsn provided' );
         }
